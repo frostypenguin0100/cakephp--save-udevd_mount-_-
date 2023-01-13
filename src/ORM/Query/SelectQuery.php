@@ -698,8 +698,10 @@ class SelectQuery extends DbSelectQuery implements JsonSerializable, QueryInterf
     public function applyOptions(array $options)
     {
         $valid = [
+            'select' => 'select',
             'fields' => 'select',
             'conditions' => 'where',
+            'where' => 'where',
             'join' => 'join',
             'order' => 'orderBy',
             'limit' => 'limit',

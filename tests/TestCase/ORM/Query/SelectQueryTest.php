@@ -999,6 +999,27 @@ class SelectQueryTest extends TestCase
         $this->assertEquals($expected, $query->getContain());
     }
 
+    public function testApplyOptionsSelectWhere(): void
+    {
+        $options = [
+            'select' => ['field_a', 'field_b'],
+            'where' => ['field_a' => 1, 'field_b' => 'something'],
+        ];
+        $query = new SelectQuery($this->table);
+        $query->applyOptions($options);
+
+        $this->assertEquals(['field_a', 'field_b'], $query->clause('select'));
+
+        $typeMap = new TypeMap([
+            'foo.id' => 'integer',
+            'id' => 'integer',
+            'foo__id' => 'integer',
+        ]);
+        $expected = new QueryExpression($options['where'], $typeMap);
+        $result = $query->clause('where');
+        $this->assertEquals($expected, $result);
+    }
+
     /**
      * Test that page is applied after limit.
      */
