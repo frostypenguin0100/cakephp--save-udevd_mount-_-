@@ -119,7 +119,7 @@ class TimeTypeTest extends TestCase
      *
      * @return array
      */
-    public function marshalProvider(): array
+    public static function marshalProvider(): array
     {
         $date = new DateTime('@1392387900');
 

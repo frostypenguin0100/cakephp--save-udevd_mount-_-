@@ -1691,7 +1691,7 @@ class RouterTest extends TestCase
      *
      * @return array
      */
-    public function parseReverseSymmetryData(): array
+    public static function parseReverseSymmetryData(): array
     {
         return [
             ['/controller/action'],
@@ -2279,7 +2279,7 @@ class RouterTest extends TestCase
     /**
      * @return array
      */
-    public function invalidRoutePathProvider(): array
+    public static function invalidRoutePathProvider(): array
     {
         return [
             ['view'],
@@ -3319,7 +3319,7 @@ class RouterTest extends TestCase
     /**
      * @return array
      */
-    public function invalidRoutePathParametersArrayProvider(): array
+    public static function invalidRoutePathParametersArrayProvider(): array
     {
         return [
             [['plugin' => false]],

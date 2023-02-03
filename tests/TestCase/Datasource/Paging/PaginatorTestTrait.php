@@ -1040,7 +1040,7 @@ trait PaginatorTestTrait
     /**
      * @return array
      */
-    public function checkLimitProvider(): array
+    public static function checkLimitProvider(): array
     {
         return [
             'out of bounds' => [
