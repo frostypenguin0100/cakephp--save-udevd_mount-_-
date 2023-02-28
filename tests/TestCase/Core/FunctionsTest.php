@@ -19,7 +19,6 @@ namespace Cake\Test\TestCase\Core;
 use Cake\Core\Configure;
 use Cake\Http\Response;
 use Cake\TestSuite\TestCase;
-use Exception;
 use stdClass;
 
 /**
@@ -92,32 +91,10 @@ class FunctionsTest extends TestCase
      */
     public function testDeprecationWarningEnabled(): void
     {
-        $this->expectDeprecation();
-        $this->expectDeprecationMessageMatches('/Since 5.0.0: This is going away\n(.*?)[\/\\\]FunctionsTest.php, line\: \d+/');
-
-        $this->withErrorReporting(E_ALL, function (): void {
-            deprecationWarning('5.0.0', 'This is going away', 2);
-        });
-    }
-
-    /**
-     * Test deprecation warnings trigger only once
-     */
-    public function testDeprecationWarningTriggerOnlyOnce(): void
-    {
-        $message = 'Test deprecation warnings trigger only once';
-        try {
-            $this->withErrorReporting(E_ALL, function () use ($message): void {
-                deprecationWarning('5.0.0', $message);
+        $this->expectDeprecationMessageMatches('/Since 5.0.0: This is going away\n(.*?)[\/\\\]FunctionsTest.php, line\: \d+/', function () {
+            $this->withErrorReporting(E_ALL, function (): void {
+                deprecationWarning('5.0.0', 'This is going away', 2);
             });
-            $this->fail();
-        } catch (Exception $e) {
-            $this->assertStringContainsString($message, $e->getMessage());
-            $this->assertStringContainsString('TestCase.php', $e->getMessage());
-        }
-
-        $this->withErrorReporting(E_ALL, function () use ($message): void {
-            deprecationWarning('5.0.0', $message);
         });
     }
 
@@ -126,11 +103,10 @@ class FunctionsTest extends TestCase
      */
     public function testDeprecationWarningEnabledDefaultFrame(): void
     {
-        $this->expectDeprecation();
-        $this->expectDeprecationMessageMatches('/Since 5.0.0: This is going away too\n(.*?)[\/\\\]TestCase.php, line\: \d+/');
-
-        $this->withErrorReporting(E_ALL, function (): void {
-            deprecationWarning('5.0.0', 'This is going away too');
+        $this->expectDeprecationMessageMatches('/Since 5.0.0: This is going away too\n(.*?)[\/\\\]TestCase.php, line\: \d+/', function () {
+            $this->withErrorReporting(E_ALL, function (): void {
+                deprecationWarning('5.0.0', 'This is going away too');
+            });
         });
     }
 
@@ -164,12 +140,11 @@ class FunctionsTest extends TestCase
      */
     public function testTriggerWarningEnabled(): void
     {
-        $this->expectWarning();
-        $this->expectWarningMessageMatches('/This will be gone one day - (.*?)[\/\\\]TestCase.php, line\: \d+/');
-
-        $this->withErrorReporting(E_ALL, function (): void {
-            triggerWarning('This will be gone one day');
-            $this->assertTrue(true);
+        $this->expectWarningMessageMatches('/This will be gone one day - (.*?)[\/\\\]TestCase.php, line\: \d+/', function () {
+            $this->withErrorReporting(E_ALL, function (): void {
+                triggerWarning('This will be gone one day');
+                $this->assertTrue(true);
+            });
         });
     }
 
