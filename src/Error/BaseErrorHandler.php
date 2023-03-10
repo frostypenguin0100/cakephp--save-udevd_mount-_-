@@ -22,6 +22,7 @@ use Cake\Routing\Router;
 use Psr\Http\Message\ServerRequestInterface;
 use RuntimeException;
 use Throwable;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Base error handler that provides logic common to the CLI + web

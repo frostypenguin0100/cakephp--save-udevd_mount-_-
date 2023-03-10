@@ -10,6 +10,7 @@ use Cake\Routing\Router;
 use InvalidArgumentException;
 use Psr\Http\Message\ServerRequestInterface;
 use Throwable;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Entry point to CakePHP's exception handling.

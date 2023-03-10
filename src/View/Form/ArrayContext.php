@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Cake\View\Form;
 
 use Cake\Utility\Hash;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Provides a basic array based context provider for FormHelper.

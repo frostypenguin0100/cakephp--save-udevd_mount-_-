@@ -26,6 +26,7 @@ use Cake\ORM\Association\BelongsToMany;
 use Cake\Utility\Hash;
 use InvalidArgumentException;
 use RuntimeException;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Contains logic to convert array data into entities.

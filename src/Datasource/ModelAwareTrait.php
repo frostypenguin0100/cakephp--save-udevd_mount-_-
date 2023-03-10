@@ -20,6 +20,8 @@ use Cake\Datasource\Exception\MissingModelException;
 use Cake\Datasource\Locator\LocatorInterface;
 use InvalidArgumentException;
 use UnexpectedValueException;
+use function Cake\Core\deprecationWarning;
+use function Cake\Core\pluginSplit;
 
 /**
  * Provides functionality for loading table classes

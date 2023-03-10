@@ -19,6 +19,7 @@ namespace Cake\Datasource;
 use Cake\Datasource\Locator\LocatorInterface;
 use Cake\ORM\Locator\TableLocator;
 use InvalidArgumentException;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Class FactoryLocator

@@ -23,6 +23,7 @@ use InvalidArgumentException;
 use IteratorAggregate;
 use Psr\Http\Message\UploadedFileInterface;
 use Traversable;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Validator object encapsulates all methods related to data validations for a model

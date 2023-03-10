@@ -44,6 +44,7 @@ use ReflectionObject;
 use ReflectionProperty;
 use RuntimeException;
 use Throwable;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Provide custom logging and error handling.

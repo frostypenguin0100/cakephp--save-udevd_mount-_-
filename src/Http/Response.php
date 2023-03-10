@@ -29,6 +29,7 @@ use Laminas\Diactoros\Stream;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use SplFileInfo;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Responses contain the response text, status and headers of a HTTP response.

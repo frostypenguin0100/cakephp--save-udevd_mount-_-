@@ -19,6 +19,7 @@ namespace Cake\Utility;
 use Cake\Core\Exception\CakeException;
 use InvalidArgumentException;
 use Transliterator;
+use function Cake\Core\deprecationWarning;
 
 /**
  * Text handling methods.

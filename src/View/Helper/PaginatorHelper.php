@@ -22,6 +22,7 @@ use Cake\View\Helper;
 use Cake\View\StringTemplate;
 use Cake\View\StringTemplateTrait;
 use Cake\View\View;
+use function Cake\Core\h;
 
 /**
  * Pagination Helper class for easy generation of pagination links.
